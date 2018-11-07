@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="" />
+    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="201811071542">
+      <change afterPath="$PROJECT_DIR$/utils/fileUtils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/revpkg/wait2Rev.py" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/wait2Rev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/revpkg/wait2Rev.ui" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/wait2Rev.ui" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,12 +15,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/pyQt$fileUtils.coverage" NAME="fileUtils Coverage Results" MODIFIED="1541586558745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/pyQt$dialogSelfCheck__1_.coverage" NAME="dialogSelfCheck (1) Coverage Results" MODIFIED="1541352472284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selfcheck" />
     <SUITE FILE_PATH="coverage/pyQt$1.coverage" NAME="1 Coverage Results" MODIFIED="1541490990866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/revpkg" />
     <SUITE FILE_PATH="coverage/pyQt$dialogSelfCheck.coverage" NAME="dialogSelfCheck Coverage Results" MODIFIED="1541514603165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selfcheck" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin__1_.coverage" NAME="dialogLogin (1) Coverage Results" MODIFIED="1541395378676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/login" />
     <SUITE FILE_PATH="coverage/pyQt$main.coverage" NAME="main Coverage Results" MODIFIED="1541313455862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pyQt$dialogWait2Rev.coverage" NAME="dialogWait2Rev Coverage Results" MODIFIED="1541520537406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/revpkg" />
+    <SUITE FILE_PATH="coverage/pyQt$dialogWait2Rev.coverage" NAME="dialogWait2Rev Coverage Results" MODIFIED="1541577074154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/revpkg" />
     <SUITE FILE_PATH="coverage/pyQt$getCPUstate.coverage" NAME="getCPUstate Coverage Results" MODIFIED="1541319694745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin.coverage" NAME="dialogLogin Coverage Results" MODIFIED="1541516094940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loginpkg" />
     <SUITE FILE_PATH="coverage/pyQt$getState.coverage" NAME="getState Coverage Results" MODIFIED="1541326802513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
@@ -74,18 +81,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="1032" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="1032" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.57597685">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -103,17 +120,30 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="112" column="59" selection-start-line="112" selection-start-column="59" selection-end-line="112" selection-end-column="59" />
+                <state relative-caret-position="-202">
+                  <caret line="122" selection-start-line="122" selection-end-line="122" />
                   <folding>
-                    <marker date="1541576931867" expanded="true" signature="544:549" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="1322:1331" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="1454:1459" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="1972:2143" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="2563:2568" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="2563:2572" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="2563:2596" ph="..." />
-                    <marker date="1541576931867" expanded="true" signature="2771:3608" ph="..." />
+                    <element signature="e#275#301#0" expanded="true" />
+                    <marker date="1541585801838" expanded="true" signature="560:565" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="1338:1347" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="1470:1475" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="1988:2159" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="2579:2584" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="2579:2588" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="2579:2612" ph="..." />
+                    <marker date="1541585801838" expanded="true" signature="2787:4169" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/utils/fileUtils.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="161">
+                  <caret line="8" selection-start-line="8" selection-end-line="8" />
+                  <folding>
+                    <marker date="1541586557555" expanded="true" signature="55:60" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -122,7 +152,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/loginpkg/login.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1150">
+                <state relative-caret-position="395">
                   <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
                 </state>
               </provider>
@@ -143,7 +173,9 @@
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2499" />
+              </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -175,16 +207,17 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/selfcheck/dialogSelfCheck.py">
+            <entry file="file://$PROJECT_DIR$/utils/fileUtils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="348">
-                  <caret line="62" selection-start-line="62" selection-end-line="62" />
+                <state relative-caret-position="23">
+                  <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
                   <folding>
-                    <element signature="e#0#16#0" expanded="true" />
-                    <marker date="1541514637996" expanded="true" signature="231:236" ph="..." />
-                    <marker date="1541514637996" expanded="true" signature="1304:1732" ph="..." />
+                    <element signature="e#0#17#0" expanded="true" />
+                    <marker date="1541586557555" expanded="true" signature="55:60" ph="..." />
+                    <marker date="1541586557555" expanded="true" signature="175:180" ph="..." />
+                    <marker date="1541586557555" expanded="true" signature="251:252" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -221,6 +254,7 @@
         <option value="$PROJECT_DIR$/utils/example4thread.py" />
         <option value="$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" />
         <option value="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" />
+        <option value="$PROJECT_DIR$/utils/fileUtils.py" />
       </list>
     </option>
   </component>
@@ -315,29 +349,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dialogWait2Rev">
-    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/revpkg" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\51198\PycharmProjects\pyQt\utils\example4thread.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.fileUtils">
     <configuration name="dialogLogin" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="pyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -426,20 +438,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="fileUtils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/fileUtils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.dialogLogin" />
-      <item itemvalue="Python.1" />
       <item itemvalue="Python.example4thread" />
       <item itemvalue="Python.dialogWait2Rev" />
       <item itemvalue="Python.dialogSelfCheck" />
+      <item itemvalue="Python.fileUtils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fileUtils" />
         <item itemvalue="Python.dialogWait2Rev" />
         <item itemvalue="Python.dialogLogin" />
         <item itemvalue="Python.dialogSelfCheck" />
         <item itemvalue="Python.example4thread" />
-        <item itemvalue="Python.1" />
       </list>
     </recent_temporary>
   </component>
@@ -454,6 +488,14 @@
       <option name="presentableId" value="Default" />
       <updated>1541309979165</updated>
     </task>
+    <task id="LOCAL-00001" summary="201811071542">
+      <created>1541577007893</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541577007893</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -469,18 +511,18 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12399464" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12399464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32561505" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39797395" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32561505" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39797395" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3338214" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.33285093" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3299566" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299566" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299566" />
@@ -492,27 +534,27 @@
       <window_info anchor="right" id="Database" order="4" weight="0.32948717" />
     </layout>
     <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12399464" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3299566" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="5" weight="0.3299566" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3299566" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.32561505" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.39797395" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" weight="0.3338214" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32948717" />
-      <window_info anchor="right" id="SciView" order="1" weight="0.32948717" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12399464" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32561505" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39797395" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.33285093" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299566" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299566" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3299566" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32948717" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32948717" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,8 +570,38 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="201811071542" />
+    <option name="LAST_COMMIT_MESSAGE" value="201811071542" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1824583205/PyQt5/QtCore/QRect.py">
@@ -612,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginpkg/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loginpkg/dialogLogin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -629,9 +694,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/example4thread.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -655,19 +717,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2499" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginpkg/login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="112" column="59" selection-start-line="112" selection-start-column="59" selection-end-line="112" selection-end-column="59" />
+        <state relative-caret-position="-202">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
           <folding>
-            <marker date="1541576931867" expanded="true" signature="544:549" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="1322:1331" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="1454:1459" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="1972:2143" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="2563:2568" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="2563:2572" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="2563:2596" ph="..." />
-            <marker date="1541576931867" expanded="true" signature="2771:3608" ph="..." />
+            <element signature="e#275#301#0" expanded="true" />
+            <marker date="1541585801838" expanded="true" signature="560:565" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="1338:1347" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="1470:1475" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="1988:2159" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="2579:2584" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="2579:2588" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="2579:2612" ph="..." />
+            <marker date="1541585801838" expanded="true" signature="2787:4169" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/fileUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1541586557555" expanded="true" signature="55:60" ph="..." />
+            <marker date="1541586557555" expanded="true" signature="175:180" ph="..." />
+            <marker date="1541586557555" expanded="true" signature="251:252" ph="..." />
           </folding>
         </state>
       </provider>

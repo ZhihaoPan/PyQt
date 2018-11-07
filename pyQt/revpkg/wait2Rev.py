@@ -19,7 +19,7 @@ class Ui_Dialog(object):
         self.pushButton_2.setGeometry(QtCore.QRect(290, 480, 93, 28))
         self.pushButton_2.setObjectName("pushButton_2")
         self.label_9 = QtWidgets.QLabel(Dialog)
-        self.label_9.setGeometry(QtCore.QRect(290, 430, 181, 20))
+        self.label_9.setGeometry(QtCore.QRect(230, 430, 231, 20))
         self.label_9.setObjectName("label_9")
         self.layoutWidget = QtWidgets.QWidget(Dialog)
         self.layoutWidget.setGeometry(QtCore.QRect(30, 90, 441, 331))

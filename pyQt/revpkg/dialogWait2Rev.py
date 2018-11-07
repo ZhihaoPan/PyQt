@@ -14,7 +14,9 @@ import sys, time, os, json
 import zmq
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtCore import QTimer, QThread, pyqtSignal
+import pathlib
 from revpkg.wait2Rev import Ui_Dialog
+
 
 # 设置平台IP地址的默认值
 IP4platform = "10.141.221.202"
@@ -110,8 +112,23 @@ class WorkThread4zmq(QThread):
         self.message = dict(self.socket.recv_json())
         print("Received request: {}".format(self.message))
         # todo 这里要把收到的json进行拆包，首先判断nfs是否可读，判断校验数值是否正确，然后写校验结果和错误信息
-        # if head== cmd就回传msg else 错误信息加同时跳出thread谢谢你的爱1111
+        # if head== cmd就回传msg else 错误信息加同时跳出thread
         if self.message["head"] == "cmd":
+            #todo 在这边要做文件是否存在能否打开的测试，计算校验数值是否正确
+            self.nfs = pathlib.Path(self.message["file"])
+            self.func_ycsyjc=self.message["func_ycsyjc"]
+            self.func_swfl=self.message["func_swfl"]
+            self.func_yzfl=self.message["func_yzfl"]
+            self.chsum=self.message["chsum"]
+
+            if self.nfs.exists():
+                #todo 再信息栏中显示该文件夹可以打开,(统计文件夹下的文件数量 放到后面做还是现在做）
+                canFileOpen=True
+            else:
+                canFileOpen=False
+                #todo 在信息栏中显示不可以打开
+                pass
+
             self.trigger.emit(self.message)
         else:
             pass
