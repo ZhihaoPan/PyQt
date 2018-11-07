@@ -67,6 +67,9 @@
       <property name="enabled">
        <bool>false</bool>
       </property>
+      <property name="text">
+       <string>等待平台发送信息......</string>
+      </property>
      </widget>
     </item>
     <item row="3" column="0">
@@ -80,6 +83,9 @@
      <widget class="QLineEdit" name="lineEdit_4">
       <property name="enabled">
        <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>等待平台发送信息......</string>
       </property>
      </widget>
     </item>
@@ -109,12 +115,18 @@
       <property name="enabled">
        <bool>false</bool>
       </property>
+      <property name="text">
+       <string>等待平台发送信息......</string>
+      </property>
      </widget>
     </item>
     <item row="1" column="1">
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="enabled">
        <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>等待平台发送信息......</string>
       </property>
      </widget>
     </item>
@@ -161,12 +173,15 @@
       <property name="enabled">
        <bool>false</bool>
       </property>
+      <property name="text">
+       <string>等待平台发送信息......</string>
+      </property>
      </widget>
     </item>
     <item row="7" column="0">
      <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>错误信息：</string>
+       <string>处理信息流程：</string>
       </property>
      </widget>
     </item>

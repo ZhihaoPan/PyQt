@@ -10,27 +10,67 @@ def is_exists(path):
 
 def crc32asii(str):
     """
-    ÓÃÓÚ×Ö·û´®µÄCRCĞ£Ñé£¬×Ö·û´®ÓÃGBK±àÂë£¬·µ»ØĞ£Ñé½á¹û×Ö·û´®
+    ç”¨äºå­—ç¬¦ä¸²çš„CRCæ ¡éªŒï¼Œå­—ç¬¦ä¸²ç”¨GBKç¼–ç ï¼Œè¿”å›æ ¡éªŒç»“æœå­—ç¬¦ä¸²
     :param str:
     :return:
     """
-    str=str.encode('GBK')
-    return '0x%8x' % (binascii.crc32(str) & 0xffffffff)
+    str1=str.encode('GBK')
+    return '0x%8x' % (binascii.crc32(str1) & 0xffffffff)
 
 def crc32hex(str):
     return '%08x' % (binascii.crc32(binascii.a2b_hex(str)) & 0xffffffff)
 
 def getChstr(msg):
     """
-    ÎŞÂÛmsgÒÑ¾­ÊÇjson¸ñÊ½»¹ÊÇ²»ÊÇjson¸ñÊ½¶¼½øĞĞÒ»´Îjson.load
-    !!!×¢ÒâÒªÇó£ºjson Óï·¨¹æ¶¨ Êı×é»ò¶ÔÏóÖ®ÖĞµÄ×Ö·û´®±ØĞëÊ¹ÓÃË«ÒıºÅ£¬²»ÄÜÊ¹ÓÃµ¥ÒıºÅ
+    é¦–å…ˆåˆ¤æ–­ä¼ å…¥çš„msgæ˜¯ä¸æ˜¯jsonç±»å‹
+    !!!æ³¨æ„è¦æ±‚ï¼šjson è¯­æ³•è§„å®š æ•°ç»„æˆ–å¯¹è±¡ä¹‹ä¸­çš„å­—ç¬¦ä¸²å¿…é¡»ä½¿ç”¨åŒå¼•å·ï¼Œä¸èƒ½ä½¿ç”¨å•å¼•å·
     :param msg:
     :return:
     """
-    #½«×Ö·û´®ÓÃjson¶ÁÈë
-    dictmsg=json.load(msg)
-    dictmsg.pop("chsum")
+    if isinstance(msg,dict):
+        msg.pop("chsum")
+        return msg
+    elif isinstance(msg,str):
+        dictmsg=json.loads(msg)
+        dictmsg.pop("chsum")
+        return dictmsg
+    else:
+        return None
+
 
 if __name__=="__main__":
-    str='{"filename":"123"}'.encode("GBK")
-    print(json.load(str))
+    # str1={"filename":"123"}
+    # str2 = {"filename1": "123"}
+    # # str2=""+str(str1)
+    # # print(str2)
+    # #print(json.loads(str))
+    # dic={}
+    # dic.update({"a":1})
+    # print(dic)
+    import zmq
+
+    context = zmq.Context()
+
+    #  Socket to talk to server
+    print("Connecting to hello world serverâ€¦")
+    socket = context.socket(zmq.REQ)
+    socket.connect("tcp://localhost:5555")
+
+    #  Do 10 requests, waiting each time for a response
+    for request in range(10):
+        print("Sending request %s â€¦" % request)
+        dic={
+            "head":"cmd",
+            "file":r"D:\Dataset\Gunshot1",
+            "func_ycsyjc":0,
+            "func_yzfl": 0,
+            "func_swfl": 0,
+            "chsum":"0xf53b5ae7"
+        }
+
+
+        socket.send_json(dic)
+
+        #  Get the reply.
+        message = socket.recv()
+        print("Received reply %s [ %s ]" % (request, message))

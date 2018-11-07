@@ -4,6 +4,8 @@ from PyQt5.QtCore import QTimer,QThread,pyqtSignal
 from selfcheck import selfCheck
 from utils.getState import *
 
+from revpkg.dialogWait2Rev import dialogWait2Rev
+
 class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
     def __init__(self,paerent=None):
         super(dialogSelfCheck,self).__init__()
@@ -19,7 +21,7 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
         self.work.trigger.connect(self.setText)
 
         #按钮事件
-        #self.pushButton.clicked.connect()
+        self.pushButton.clicked.connect(self.btnContinue)
         #self.pushButton_2.clicked.connect()
 
     def start(self):
@@ -38,7 +40,9 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
         #QApplication.processEvents()
 
     def btnContinue(self):
-        pass
+        self.nextwindow=dialogWait2Rev()
+        self.nextwindow.show()
+        self.close()
 
     def btnReport(self):
         pass
