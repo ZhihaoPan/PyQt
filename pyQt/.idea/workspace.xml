@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="">
+    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="201811080117">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pyQt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PyQt.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/revpkg/wait2Rev.py" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/wait2Rev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/revpkg/wait2Rev.ui" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/wait2Rev.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/otherUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/otherUtils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +21,8 @@
     <SUITE FILE_PATH="coverage/pyQt$dialogSelfCheck.coverage" NAME="dialogSelfCheck Coverage Results" MODIFIED="1541609164318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selfcheck" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin__1_.coverage" NAME="dialogLogin (1) Coverage Results" MODIFIED="1541395378676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/login" />
     <SUITE FILE_PATH="coverage/pyQt$main.coverage" NAME="main Coverage Results" MODIFIED="1541313455862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pyQt$dialogWait2Rev.coverage" NAME="dialogWait2Rev Coverage Results" MODIFIED="1541609903082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/revpkg" />
-    <SUITE FILE_PATH="coverage/pyQt$otherUtils.coverage" NAME="otherUtils Coverage Results" MODIFIED="1541609919398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/pyQt$dialogWait2Rev.coverage" NAME="dialogWait2Rev Coverage Results" MODIFIED="1541644681598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/revpkg" />
+    <SUITE FILE_PATH="coverage/pyQt$otherUtils.coverage" NAME="otherUtils Coverage Results" MODIFIED="1541644718064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/pyQt$getCPUstate.coverage" NAME="getCPUstate Coverage Results" MODIFIED="1541319694745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin.coverage" NAME="dialogLogin Coverage Results" MODIFIED="1541609428694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loginpkg" />
     <SUITE FILE_PATH="coverage/pyQt$getState.coverage" NAME="getState Coverage Results" MODIFIED="1541326802513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
@@ -96,83 +95,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="9" />
+          <entry key="py" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="9" />
+          <entry key="Python" value="10" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="162" column="8" selection-start-line="162" selection-start-column="8" selection-end-line="162" selection-end-column="8" />
-              <folding>
-                <element signature="e#275#301#0" expanded="true" />
-                <marker date="1541610610449" expanded="true" signature="619:624" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="1548:1557" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="1680:1685" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="1918:2362" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="2694:2865" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="3315:3320" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="3315:3324" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="3315:3348" ph="..." />
-                <marker date="1541610610449" expanded="true" signature="3523:5340" ph="..." />
-              </folding>
+            <state relative-caret-position="325">
+              <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/otherUtils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-                <marker date="1541609881823" expanded="true" signature="67:72" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/selfcheck/dialogSelfCheck.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-                <marker date="1541609173922" expanded="true" signature="281:286" ph="..." />
-                <marker date="1541609173922" expanded="true" signature="1227:1326" ph="..." />
-                <marker date="1541609173922" expanded="true" signature="1449:1877" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2499" />
           </provider>
         </entry>
       </file>
@@ -222,7 +162,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -252,26 +192,26 @@
         <subPane>
           <expand>
             <path>
-              <item name="pyQt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyQt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
               <item name="loginpkg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyQt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
               <item name="revpkg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyQt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
               <item name="selfcheck" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="pyQt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -308,8 +248,76 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.dialogWait2Rev">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dialogLogin" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
+      <module name="PyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -331,7 +339,7 @@
       <method v="2" />
     </configuration>
     <configuration name="dialogSelfCheck" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
+      <module name="PyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -353,7 +361,7 @@
       <method v="2" />
     </configuration>
     <configuration name="dialogWait2Rev" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
+      <module name="PyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -375,7 +383,7 @@
       <method v="2" />
     </configuration>
     <configuration name="fileUtils" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
+      <module name="PyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -397,7 +405,7 @@
       <method v="2" />
     </configuration>
     <configuration name="otherUtils" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pyQt" />
+      <module name="PyQt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -418,6 +426,65 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Python.FlaskServer" factoryName="Flask server">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="PyQt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.dialogLogin" />
       <item itemvalue="Python.dialogWait2Rev" />
@@ -427,8 +494,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.otherUtils" />
         <item itemvalue="Python.dialogWait2Rev" />
+        <item itemvalue="Python.otherUtils" />
         <item itemvalue="Python.dialogLogin" />
         <item itemvalue="Python.dialogSelfCheck" />
         <item itemvalue="Python.fileUtils" />
@@ -480,23 +547,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23789765" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1152815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.20644216" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4011713" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.20549928" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4011713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33285093" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3299566" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49932975" visible="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.35890016" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3299566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -619,13 +686,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/selfcheck/selfCheck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1412">
-          <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/selfcheck/selfCheck.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/zmq/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -633,42 +694,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/example4thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2499" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/getState.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <marker date="1541390868650" expanded="true" signature="69:74" ph="..." />
-            <marker date="1541390868650" expanded="true" signature="243:248" ph="..." />
-            <marker date="1541390868650" expanded="true" signature="328:337" ph="..." />
-            <marker date="1541390868650" expanded="true" signature="1236:1930" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginpkg/login.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="37" column="56" lean-forward="true" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/example4thread.py" />
+    <entry file="file://$PROJECT_DIR$/revpkg/wait2Rev.py" />
+    <entry file="file://$PROJECT_DIR$/utils/getState.py" />
+    <entry file="file://$PROJECT_DIR$/loginpkg/login.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -676,67 +705,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginpkg/dialogLogin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1541489687291" expanded="true" signature="211:216" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py" />
+    <entry file="file://$PROJECT_DIR$/loginpkg/dialogLogin.py" />
     <entry file="file://$PROJECT_DIR$/utils/otherUtils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <marker date="1541609881823" expanded="true" signature="67:72" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/selfcheck/dialogSelfCheck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1541609173922" expanded="true" signature="281:286" ph="..." />
-            <marker date="1541609173922" expanded="true" signature="1227:1326" ph="..." />
-            <marker date="1541609173922" expanded="true" signature="1449:1877" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" />
     <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="162" column="8" selection-start-line="162" selection-start-column="8" selection-end-line="162" selection-end-column="8" />
-          <folding>
-            <element signature="e#275#301#0" expanded="true" />
-            <marker date="1541610610449" expanded="true" signature="619:624" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="1548:1557" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="1680:1685" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="1918:2362" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="2694:2865" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="3315:3320" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="3315:3324" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="3315:3348" ph="..." />
-            <marker date="1541610610449" expanded="true" signature="3523:5340" ph="..." />
-          </folding>
+        <state relative-caret-position="325">
+          <caret line="164" lean-forward="true" selection-start-line="164" selection-end-line="164" />
         </state>
       </provider>
     </entry>

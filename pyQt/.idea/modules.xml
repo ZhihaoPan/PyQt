@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pyQt.iml" filepath="$PROJECT_DIR$/.idea/pyQt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PyQt.iml" filepath="$PROJECT_DIR$/.idea/PyQt.iml" />
     </modules>
   </component>
 </project>
