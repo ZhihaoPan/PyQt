@@ -25,15 +25,16 @@ IP4platform = "localhost"
 
 
 class dialogWait2Rev(QDialog, Ui_Dialog):
-    def __init__(self, parent=None):
+    def __init__(self, selfCheckSta=200, parent=None):
         super(dialogWait2Rev, self).__init__()
         self.setupUi(self)
         #self.IP4platform = IP4platform
         self.errorMsg = ""
-
+        self.selfCheckSta=selfCheckSta#todo 传值到线程中
+        self.plainTextEdit.appendPlainText("上一步自检请求上报错误信息："+str(self.selfCheckSta))
         # Timer进行计时的反馈
         self.timer1 = QTimer()
-        self.work4Zmq= WorkThread4zmq()
+        self.work4Zmq= WorkThread4zmq(self.selfCheckSta)
         self.timer1.timeout.connect(self.showCurrentTime)
         #self.timer1.timeout.connect(self.work4Zmq.start)
         # self.timer.setSingleShot(True)#设置为timeout只执行一次
@@ -119,11 +120,12 @@ class WorkThread4Network(QThread):
 class WorkThread4zmq(QThread):
     trigger = pyqtSignal(dict)
 
-    def __init__(self):
+    def __init__(self,selfCheckSta):
         super(WorkThread4zmq, self).__init__()
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REP)
         self.socket.bind("tcp://*:5555")
+        self.selfCheckSta=selfCheckSta
 
     def run(self):
         self.message = dict(self.socket.recv_json())
@@ -131,7 +133,10 @@ class WorkThread4zmq(QThread):
         # todo 这里要把收到的json进行拆包，首先判断nfs是否可读，判断校验数值是否正确，然后写校验结果和错误信息
         # if head== cmd就回传msg else 错误信息加同时跳出thread
         returnMsg={}
+        ifReady=1#用于判断系统是否准备完毕
+        error=self.selfCheckSta#设置默认值
         if self.message["head"] == "cmd":
+            ifReady=ifReady and 1
             #todo 在这边要做文件是否存在能否打开的测试，计算校验数值是否正确
             self.nfs = pathlib.Path(self.message["file"])
             self.func_ycsyjc=self.message["func_ycsyjc"]
@@ -146,26 +151,41 @@ class WorkThread4zmq(QThread):
             #计算校验码
             chsum=crc32asii(str(chstr))
             if chsum==self.chsum:
+                ifReady=ifReady and 1
                 #设置信息中校验正确
                 returnMsg.update({"chsum":"经过校验后，发送信息内容无误。"})
             else:
+                error=600
+                ifReady = ifReady and 0
                 returnMsg.update({"chsum": "经过校验后，发送信息内容出现错误。"})
             if self.nfs.exists():
+                ifReady = ifReady and 1
                 #todo 再信息栏中显示该文件夹可以打开,(统计文件夹下的文件数量 放到后面做还是现在做）
                 returnMsg.update({"ifFileOpen":str(self.nfs.absolute())+": 该文件目录存在."})
             else:
+                ifReady = ifReady and 0
+                error=404
                 returnMsg.update({"ifFileOpen": str(self.nfs.absolute()) + ": 该文件目录不存在."})
             self.trigger.emit(returnMsg)
         else:
+            ifReady = ifReady and 0
+            error=700
             returnMsg.update({"Error":"Head is not cmd"})
 
         # 判断文件是否存在 存在话在 if 校验正确其他也无误 组包 else 错误加 else 错误加 组包  # todo 这里要对需要发送的数据进行组包
-
-        # self.socket.send_json()
+        sendDic={"head":"rec",
+                 "file":str(self.nfs.absolute()),
+                 "network":100,
+                 "ready":ifReady,
+                 "error":error
+                 }
+        sendChsum=crc32asii(str(sendDic))
+        sendDic.update({"chsum":sendChsum})
+        self.socket.send_json(sendDic)
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     dialog = dialogWait2Rev()
     dialog.show()
-    sys.exit(app.exec_())  # result=os.system(u"ping www.baidu.com")  # print(result)
+    sys.exit(app.exec_())

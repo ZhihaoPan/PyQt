@@ -12,7 +12,7 @@ def crc32asii(str):
     """
     用于字符串的CRC校验，字符串用GBK编码，返回校验结果字符串
     :param str:
-    :return:
+    :return:str
     """
     str1=str.encode('GBK')
     return '0x%8x' % (binascii.crc32(str1) & 0xffffffff)
@@ -61,7 +61,7 @@ if __name__=="__main__":
         print("Sending request %s …" % request)
         dic={
             "head":"cmd",
-            "file":r"D:\Dataset\Gunshot1",
+            "file":r"D:\Dataset\Gunshot",
             "func_ycsyjc":0,
             "func_yzfl": 0,
             "func_swfl": 0,
@@ -72,5 +72,5 @@ if __name__=="__main__":
         socket.send_json(dic)
 
         #  Get the reply.
-        message = socket.recv()
+        message = socket.recv_json()
         print("Received reply %s [ %s ]" % (request, message))

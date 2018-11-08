@@ -22,7 +22,7 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
 
         #按钮事件
         self.pushButton.clicked.connect(self.btnContinue)
-        #self.pushButton_2.clicked.connect()
+        self.pushButton_2.clicked.connect(self.btnReport)
 
     def start(self):
         #time.sleep(1)
@@ -40,12 +40,12 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
         #QApplication.processEvents()
 
     def btnContinue(self):
-        self.nextwindow=dialogWait2Rev()
+        self.nextwindow=dialogWait2Rev(self.selfCheckSta)
         self.nextwindow.show()
         self.close()
 
     def btnReport(self):
-        pass
+        self.selfCheckSta=500
 
 #用一个trigger函数用来接收信号，同时可以返回pyqtSignal的参数给上面trigger.connect里的函数
 class WorkThread(QThread):
