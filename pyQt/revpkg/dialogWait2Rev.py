@@ -77,21 +77,27 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         if self.lineEdit_8.text()=="":
             box = QMessageBox.critical(self, "Wrong", "请输入IP地址", QMessageBox.Ok | QMessageBox.Cancel)
         self.IP4platform = self.lineEdit_8.text()
+        self.plainTextEdit.appendPlainText("设置Ping地址为："+str(self.IP4platform))
         # 设置线程中的IP address
         self.work4Net.setIP(self.IP4platform)
         print("set IP4platform IP:" + self.IP4platform)
         self.timer2.start()
         self.work4Zmq.start()
+        self.plainTextEdit.appendPlainText("开始网络通信检测....")
+        self.plainTextEdit.appendPlainText("开始监听5555端口，等待平台发送数据....")
 
     # IP,如果用户点击的是default
     def ipDefault(self):
         self.IP4platform = IP4platform
         self.lineEdit_8.setText(self.IP4platform)
+        self.plainTextEdit.appendPlainText("设置Ping地址为：" + str(self.IP4platform))
         # 设置线程中的IP address
         self.work4Net.setIP(self.IP4platform)
         print("set IP4platform IP:" + IP4platform)
         self.timer2.start()
         self.work4Zmq.start()
+        self.plainTextEdit.appendPlainText("开始网络通信检测....")
+        self.plainTextEdit.appendPlainText("开始监听5555端口，等待平台发送数据....")
 
     def work4NetStart(self):
         """
@@ -143,13 +149,14 @@ class WorkThread4zmq(QThread):
         super(WorkThread4zmq, self).__init__()
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REP)
-        self.socket.bind("tcp://*:5555")
+        #端口的绑点放在线程中做
         self.selfCheckSta=selfCheckSta
 
     def run(self):
         """
         :return:
         """
+        self.socket.bind("tcp://*:5555")#绑定端口
         self.message = dict(self.socket.recv_json())
         print("Received request: {}".format(self.message))
         # todo 这里要把收到的json进行拆包，首先判断nfs是否可读，判断校验数值是否正确，然后写校验结果和错误信息
@@ -194,15 +201,16 @@ class WorkThread4zmq(QThread):
             error=700
             returnMsg.update({"Error":"Head is not cmd"})
 
-        # todo 这里要对需要发送的数据进行组包
+        # todo 这里要对需要发送的数据进行组包，network想个好的办法能够获得上面运行后的数据同时在sendjson之前发送
         sendDic={"head":"rec",
                  "file":str(self.nfs.absolute()),
-                 "network":100,
+                 "network":1,
                  "ready":ifReady,
                  "error":error
                  }
         sendChsum=crc32asii(str(sendDic))
         sendDic.update({"chsum":sendChsum})
+        #发给平台数据包，直接传输json格式
         self.socket.send_json(sendDic)
 
 
