@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="201811080117">
+    <list default="true" id="9184afb0-a423-4a00-b808-94d748d38236" name="Default Changelist" comment="add sendjson">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" beforeDir="false" afterPath="$PROJECT_DIR$/revpkg/dialogWait2Rev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/selfcheck/dialogSelfCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/otherUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/otherUtils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +23,7 @@
     <SUITE FILE_PATH="coverage/pyQt$dialogSelfCheck.coverage" NAME="dialogSelfCheck Coverage Results" MODIFIED="1541609164318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selfcheck" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin__1_.coverage" NAME="dialogLogin (1) Coverage Results" MODIFIED="1541395378676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/login" />
     <SUITE FILE_PATH="coverage/pyQt$main.coverage" NAME="main Coverage Results" MODIFIED="1541313455862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PyQt$dialogLogin.coverage" NAME="dialogLogin Coverage Results" MODIFIED="1541656963599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loginpkg" />
+    <SUITE FILE_PATH="coverage/PyQt$dialogLogin.coverage" NAME="dialogLogin Coverage Results" MODIFIED="1541662284489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loginpkg" />
     <SUITE FILE_PATH="coverage/pyQt$dialogLogin.coverage" NAME="dialogLogin Coverage Results" MODIFIED="1541609428694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/loginpkg" />
     <SUITE FILE_PATH="coverage/pyQt$example4thread.coverage" NAME="example4thread Coverage Results" MODIFIED="1541491143513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
@@ -86,12 +83,12 @@
         <counts>
           <entry key="dummy" value="7" />
           <entry key="py" value="3549" />
-          <entry key="txt" value="4" />
+          <entry key="txt" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="PLAIN_TEXT" value="43" />
           <entry key="Python" value="3549" />
         </counts>
       </usages-collector>
@@ -112,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1930">
-              <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
+            <state relative-caret-position="-1283">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -121,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/otherUtils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+            <state relative-caret-position="120">
+              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -132,7 +129,9 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginpkg/dialogLogin.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-524" />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -222,16 +221,6 @@
             <path>
               <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyQt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyQt" type="462c0819:PsiDirectoryNode" />
-              <item name="loginpkg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyQt" type="462c0819:PsiDirectoryNode" />
-              <item name="revpkg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PyQt" type="b2602c69:ProjectViewProjectNode" />
@@ -524,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541588763535</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add sendjson">
+      <created>1541660647631</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1541660647651</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -538,13 +534,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1508043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.20260492" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.42981187" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4011713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -553,7 +550,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067025" side_tool="true" weight="0.35890016" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.329429" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49932975" weight="0.3338214" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49932975" weight="0.33285093" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3299566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -630,7 +627,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="201811071542" />
     <MESSAGE value="201811071832" />
-    <option name="LAST_COMMIT_MESSAGE" value="201811071832" />
+    <MESSAGE value="add sendjson" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sendjson" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1824583205/PyQt5/QtCore/QRect.py">
@@ -703,12 +701,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginpkg/dialogLogin.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-524" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/otherUtils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+        <state relative-caret-position="120">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -717,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/revpkg/dialogWait2Rev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1930">
-          <caret line="33" column="81" selection-start-line="33" selection-start-column="81" selection-end-line="33" selection-end-column="81" />
+        <state relative-caret-position="-1283">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

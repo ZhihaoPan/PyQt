@@ -10,6 +10,8 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
     def __init__(self,paerent=None):
         super(dialogSelfCheck,self).__init__()
         self.setupUi(self)
+        self.selfCheckSta = 200#default
+
         self.timer=QTimer(self)
         self.timer.timeout.connect(self.start)
         self.timer.setSingleShot(True)
