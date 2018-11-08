@@ -12,7 +12,7 @@ rproc_done (str)	音频数据地址(nfs) (str)	(校验和)
 """
 import sys, time, os, json
 import zmq
-from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.QtWidgets import QApplication, QDialog,QMessageBox
 from PyQt5.QtCore import QTimer, QThread, pyqtSignal
 import pathlib
 
@@ -21,7 +21,7 @@ from utils.otherUtils import *
 
 # 设置平台IP地址的默认值
 # IP4platform = "10.141.221.202"
-IP4platform = "localhost"
+IP4platform = "192.168.89.159"
 
 
 class dialogWait2Rev(QDialog, Ui_Dialog):
@@ -31,7 +31,7 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         #self.IP4platform = IP4platform
         self.errorMsg = ""
         self.selfCheckSta=selfCheckSta#todo 传值到线程中
-        self.plainTextEdit.appendPlainText("上一步自检请求上报错误信息："+str(self.selfCheckSta))
+        self.plainTextEdit.appendPlainText("上一步自检请求上报信息："+str(self.selfCheckSta))
         # Timer进行计时的反馈
         self.timer1 = QTimer()
         self.work4Zmq= WorkThread4zmq(self.selfCheckSta)
@@ -44,7 +44,7 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         # Timer设置5s进行一次线程的查看网络情况的反馈
         self.timer2 = QTimer()
         self.work4Net = WorkThread4Network()
-        self.timer2.timeout.connect(self.work4Net.start)
+        self.timer2.timeout.connect(self.work4NetStart)
         self.work4Net.trigger.connect(self.showNetwork)
 
         # 点击按钮平台IP地址的设定
@@ -74,11 +74,13 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
             self.plainTextEdit.appendPlainText("\n收到的数据包头不是cmd")
     # IP,如果用户点击的是确认
     def ipConfirm(self):
+        if self.lineEdit_8.text()=="":
+            box = QMessageBox.critical(self, "Wrong", "请输入IP地址", QMessageBox.Ok | QMessageBox.Cancel)
         self.IP4platform = self.lineEdit_8.text()
         # 设置线程中的IP address
         self.work4Net.setIP(self.IP4platform)
         print("set IP4platform IP:" + self.IP4platform)
-        self.timer2.start(5000)
+        self.timer2.start()
         self.work4Zmq.start()
 
     # IP,如果用户点击的是default
@@ -88,8 +90,18 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         # 设置线程中的IP address
         self.work4Net.setIP(self.IP4platform)
         print("set IP4platform IP:" + IP4platform)
-        self.timer2.start(5000)
+        self.timer2.start()
         self.work4Zmq.start()
+
+    def work4NetStart(self):
+        """
+        重新设置了timer使得第一次ping的时候是立刻的，后面的ping是每隔10s一次
+        :return:
+        """
+        self.work4Net.start()
+        self.timer2.stop()
+        self.timer2.start(10000)
+
 
     # 如果在自检的时候出现的问题，可以传递错误信息，汇总后一起发送给平台
     # todo 查看需要发送什么样的自检信息到这里
@@ -118,9 +130,16 @@ class WorkThread4Network(QThread):
 
 
 class WorkThread4zmq(QThread):
+    """
+    线程,通过zmq和平台进行数据的交互
+    """
     trigger = pyqtSignal(dict)
 
     def __init__(self,selfCheckSta):
+        """
+        :param selfCheckSta:自检后发来的自检结果
+        此时本机作为rep端等待平台发送数据到本机
+        """
         super(WorkThread4zmq, self).__init__()
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REP)
@@ -128,13 +147,16 @@ class WorkThread4zmq(QThread):
         self.selfCheckSta=selfCheckSta
 
     def run(self):
+        """
+        :return:
+        """
         self.message = dict(self.socket.recv_json())
         print("Received request: {}".format(self.message))
         # todo 这里要把收到的json进行拆包，首先判断nfs是否可读，判断校验数值是否正确，然后写校验结果和错误信息
         # if head== cmd就回传msg else 错误信息加同时跳出thread
         returnMsg={}
         ifReady=1#用于判断系统是否准备完毕
-        error=self.selfCheckSta#设置默认值
+        error=self.selfCheckSta#记录发生错误的错误码，初试设置默认值为自检的结果码
         if self.message["head"] == "cmd":
             ifReady=ifReady and 1
             #todo 在这边要做文件是否存在能否打开的测试，计算校验数值是否正确
@@ -166,13 +188,13 @@ class WorkThread4zmq(QThread):
                 ifReady = ifReady and 0
                 error=404
                 returnMsg.update({"ifFileOpen": str(self.nfs.absolute()) + ": 该文件目录不存在."})
-            self.trigger.emit(returnMsg)
+            self.trigger.emit(returnMsg) #通过trigger返回线程信息
         else:
             ifReady = ifReady and 0
             error=700
             returnMsg.update({"Error":"Head is not cmd"})
 
-        # 判断文件是否存在 存在话在 if 校验正确其他也无误 组包 else 错误加 else 错误加 组包  # todo 这里要对需要发送的数据进行组包
+        # todo 这里要对需要发送的数据进行组包
         sendDic={"head":"rec",
                  "file":str(self.nfs.absolute()),
                  "network":100,
