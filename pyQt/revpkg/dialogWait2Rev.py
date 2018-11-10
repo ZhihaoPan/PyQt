@@ -20,8 +20,8 @@ from revpkg.wait2Rev import Ui_Dialog
 from utils.otherUtils import *
 
 # 设置平台IP地址的默认值
-# IP4platform = "10.141.221.202"
-IP4platform = "192.168.89.159"
+IP4platform = "localhost"
+# IP4platform = "192.168.89.159"
 
 
 class dialogWait2Rev(QDialog, Ui_Dialog):
@@ -29,10 +29,11 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         super(dialogWait2Rev, self).__init__()
         self.setupUi(self)
         #self.IP4platform = IP4platform
+        self.filepath=""
         self.errorMsg = ""
         self.selfCheckSta=selfCheckSta#todo 传值到线程中
         self.plainTextEdit.appendPlainText("上一步自检请求上报信息："+str(self.selfCheckSta))
-        # Timer进行计时的反馈
+        # Timer进行计时的反馈，给ZMQ开了一个线程
         self.timer1 = QTimer()
         self.work4Zmq= WorkThread4zmq(self.selfCheckSta)
         self.timer1.timeout.connect(self.showCurrentTime)
@@ -70,8 +71,22 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
             self.lineEdit_5.setText(str(Msg["func_yzfl"]))
             self.lineEdit_6.setText(Msg["chsum"])
             self.plainTextEdit.appendPlainText(Msg["ifFileOpen"])
+            self.filepath=Msg["file"]
+            # 给发送文件信息开一个线程
+            self.work4Send = WorkThread4Send(self.filepath)
+            self.work4Send.trigger.connect(self.showFileInfo)
+            self.work4Send.start()
         else:
             self.plainTextEdit.appendPlainText("\n收到的数据包头不是cmd")
+
+
+    def showFileInfo(self,info):
+        self.lineEdit_9.setText(str(info["file_num"]))
+        self.lineEdit_10.setText(info["time"])
+        self.lineEdit_11.setText(info["chsum"])
+        self.lineEdit_12.setText(info["head"])
+        self.lineEdit_13.setText(info["stop"])
+
     # IP,如果用户点击的是确认
     def ipConfirm(self):
         if self.lineEdit_8.text()=="":
@@ -214,6 +229,72 @@ class WorkThread4zmq(QThread):
         self.socket.send_json(sendDic)
 
 
+class WorkThread4Send(QThread):
+    """
+    该线程用于计算文件的数量，预处理音频所需要的时长和组成数据包发送给平台
+    """
+    trigger=pyqtSignal(dict)
+    def __init__(self,filepath):
+        super(WorkThread4Send,self).__init__()
+        self.filepath=filepath
+        self.context = zmq.Context()
+        self.socket=self.context.socket(zmq.REQ)
+
+    def run(self):
+        #组成数据包
+        sendMsg={"head":"report",
+                 "file":self.filepath}
+        file_num=countWavFile(self.filepath)
+        sendMsg.update({"file_num":file_num})
+        #todo 这里还需要添加计算时间的函数
+        sendMsg.update({"time":"00:00：00"})
+        chsum=crc32asii(sendMsg)
+        sendMsg.update({"chsum":chsum})
+        #zmq
+        self.socket.connect("tcp://"+IP4platform+":5556")
+        print("Sending report....: %s"% str(sendMsg))
+        self.socket.send_json(sendMsg)
+
+        self.revMsg=self.socket.recv_json()
+        print("Received reply: %s" % (self.revMsg))
+        #对收到的Msg进行解析
+        #对chsum进行校验
+        revChstr=getChstr(self.revMsg)
+        revChsum=crc32asii(revChstr)
+        #初始化要发送到主线程的信息
+        info={"file_num":file_num,
+              "time":"00:00:00"}
+
+        if revChsum==self.revMsg["chsum"]:
+            #todo 报告收到的数据包校验正确
+            info.update({"chsum":"收到的数据包校验正确"})
+
+        if self.revMsg["head"]=="control":
+            #返回给界面收到了control信息，可以进行下一步
+            info.update({"head":"收到的数据包头为'control'"})
+            if self.revMsg["stop"]==0:
+                info.update({"stop":"平台要求继续进行后续操作！"})
+            else :
+                info.update({"stop": "平台要求停止进行后续操作！"})
+        self.trigger.emit(info)
+
+def countWavFile(path):
+    queue = []
+    count = 0
+    queue.append(path)
+    while len(queue) > 0:
+        tmp = queue.pop(0)
+        if os.path.isdir(tmp):
+            for item in os.listdir(tmp):
+                outfile = os.path.join(tmp, item)
+                queue.append(outfile)
+        elif os.path.isfile(tmp):
+            name = os.path.basename(tmp)
+            extension = name.split('.')
+            if len(extension) == 2:
+                if extension[1] == 'wav':
+                    count += 1
+    return count
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     dialog = dialogWait2Rev()
