@@ -247,7 +247,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>490</y>
+     <y>460</y>
      <width>221</width>
      <height>21</height>
     </rect>
@@ -256,16 +256,50 @@
     <string>等待平台传输文件地址....</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>520</y>
+     <y>484</y>
      <width>431</width>
-     <height>121</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lineEdit_11">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>等待文件信息载入....</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>数据包头：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="lineEdit_12">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>等待文件信息载入....</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="text">
+       <string>是否开始：</string>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label_12">
       <property name="text">
@@ -283,6 +317,16 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>等待文件信息载入....</string>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_13">
       <property name="text">
@@ -290,8 +334,15 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_10">
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>校验结果：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="lineEdit_13">
       <property name="enabled">
        <bool>false</bool>
       </property>

@@ -84,8 +84,8 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         self.lineEdit_9.setText(str(info["file_num"]))
         self.lineEdit_10.setText(info["time"])
         self.lineEdit_11.setText(info["chsum"])
-        self.lineEdit_12.setText(info["head"])
-        self.lineEdit_13.setText(info["stop"])
+        self.lineEdit_13.setText(info["head"])
+        self.lineEdit_12.setText(info["stop"])
 
     # IP,如果用户点击的是确认
     def ipConfirm(self):
@@ -259,13 +259,14 @@ class WorkThread4Send(QThread):
         print("Received reply: %s" % (self.revMsg))
         #对收到的Msg进行解析
         #对chsum进行校验
+        chsum=self.revMsg["chsum"]
         revChstr=getChstr(self.revMsg)
         revChsum=crc32asii(revChstr)
         #初始化要发送到主线程的信息
         info={"file_num":file_num,
               "time":"00:00:00"}
 
-        if revChsum==self.revMsg["chsum"]:
+        if revChsum==chsum:
             #todo 报告收到的数据包校验正确
             info.update({"chsum":"收到的数据包校验正确"})
 

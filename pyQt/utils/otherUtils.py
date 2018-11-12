@@ -79,5 +79,5 @@ if __name__=="__main__":
     print("receive request:%s" % str(message))
 
     dic={
-    "head":"report", "file":" / xxxx / xxxxx", "stop":0,    "chsum":"00000"}
+    "head":"control", "file":" / xxxx / xxxxx", "stop":0,    "chsum":"0x2f42a089"}
     socket.send_json(dic)
