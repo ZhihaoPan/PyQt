@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="remoteDeploymentFS://&lt;5f1754e1-66a7-43d3-89e0-8310844936e8&gt;/DataSet/Urbandataset/Audio-Classifier-master/multiPrediction.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo/dialogDemo.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/utils/otherUtils.py" charset="UTF-8" />
   </component>
 </project>

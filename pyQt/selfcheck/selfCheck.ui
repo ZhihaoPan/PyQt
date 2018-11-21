@@ -237,6 +237,25 @@
     <string>反馈错误信息</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>540</y>
+     <width>231</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Devanagari</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>如出现错误先点击反馈错误</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

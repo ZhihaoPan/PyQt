@@ -47,6 +47,7 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
         self.close()
 
     def btnReport(self):
+        #500表示自检出现问题
         self.selfCheckSta=500
 
 #用一个trigger函数用来接收信号，同时可以返回pyqtSignal的参数给上面trigger.connect里的函数

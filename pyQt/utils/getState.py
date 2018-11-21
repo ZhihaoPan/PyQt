@@ -20,7 +20,7 @@ def getMemorystate():
             phymem.percent, str(int(phymem.used / 1024 / 1024)) + "M", str(int(phymem.total / 1024 / 1024)) + "M")
         return line
     except Exception as e:
-        return "Error:"+str(e)
+        return "出现错误 Error:"+str(e)
 
 def getTemstate():
     """
@@ -40,7 +40,7 @@ def getTemstate():
                 tem_str+="label:"+entry.label+" ,Tem:"+str(entry.current)+" |\n"
         return tem_str
     except Exception as e:
-        return "Error:"+str(e)
+        return "出现错误 Error:"+str(e)
 
 def getGPUstate():
     """
@@ -61,7 +61,7 @@ def getGPUstate():
         return infoStr
     except Exception as e:
         print("error happen in getGPUstate:"+str(e))
-        return "Error:"+str(e)
+        return "出现错误 Error:"+str(e)
 
 if __name__=="__main__":
     meminfo=getTemstate()

@@ -43,6 +43,8 @@ def getChstr(msg):
     else:
         return None
 
+def calProcTime(filepath):
+    pass
 
 if __name__=="__main__":
     # str1={"filename":"123"}

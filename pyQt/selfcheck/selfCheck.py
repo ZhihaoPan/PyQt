@@ -117,6 +117,13 @@ class Ui_Dialog(object):
         self.pushButton_2 = QtWidgets.QPushButton(Dialog)
         self.pushButton_2.setGeometry(QtCore.QRect(470, 540, 111, 28))
         self.pushButton_2.setObjectName("pushButton_2")
+        self.label_8 = QtWidgets.QLabel(Dialog)
+        self.label_8.setGeometry(QtCore.QRect(20, 540, 231, 29))
+        font = QtGui.QFont()
+        font.setFamily("Adobe Devanagari")
+        font.setPointSize(10)
+        self.label_8.setFont(font)
+        self.label_8.setObjectName("label_8")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -137,4 +144,5 @@ class Ui_Dialog(object):
         self.label_6.setText(_translate("Dialog", "自检中....."))
         self.pushButton.setText(_translate("Dialog", "继续"))
         self.pushButton_2.setText(_translate("Dialog", "反馈错误信息"))
+        self.label_8.setText(_translate("Dialog", "如出现错误先点击反馈错误"))
 
