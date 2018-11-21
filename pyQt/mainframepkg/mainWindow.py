@@ -40,9 +40,9 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
 
     def showMonitor(self,monitorMsg):
         self.lineEdit_6.setText(monitorMsg["cpu"])
-        self.lineEdit_7.setText(monitorMsg["gpu"])
-        self.lineEdit_8.setText(monitorMsg["mem"])
-        self.lineEdit_10.setText((monitorMsg["tem"]))
+        self.textEdit.setText(monitorMsg["gpu"])
+        self.textEdit_3.setText(monitorMsg["mem"])
+        self.textEdit_2.setText((monitorMsg["tem"]))
 class WorkThread4Monitor(QThread):
     trigger = pyqtSignal(dict)
     def __init__(self):
