@@ -27,18 +27,25 @@ IP4platform = "localhost"
 
 
 class dialogWait2Rev(QDialog, Ui_Dialog):
+    """
+    在init中开了两个线程第一个是WorkThread4zmq，是用于时序图中的1、2流程，
+                     第二个是WorkThread4Network，用于每5-10s进行一次网络ping
+    同时在第一个线程WorkThread4zmq连接的函数showMsg中也建立了一个线程，
+    该线程用于时序图中的3、4流程。
+    """
     def __init__(self, selfCheckSta=200, parent=None):
         super(dialogWait2Rev, self).__init__()
         self.setupUi(self)
         # self.IP4platform = IP4platform
         self.filepath = ""
         self.errorMsg = ""
+        #上一步自检结果的反馈
         self.selfCheckSta = selfCheckSta
-
         if self.selfCheckSta == 500:
             self.plainTextEdit.appendPlainText("上一步自检出现错误请求上报信息：" + str(self.selfCheckSta))
         else:
             self.plainTextEdit.appendPlainText("上一步自检无误上报信息：" + str(self.selfCheckSta))
+
         # Timer进行计时的反馈，给ZMQ开了一个线程
         self.timer1 = QTimer()
         self.work4Zmq = WorkThread4zmq(self.selfCheckSta)
@@ -220,7 +227,7 @@ class WorkThread4zmq(QThread):
             error = 700
             returnMsg.update({"Error": "Head is not cmd"})
 
-        # todo 这里要对需要发送的数据进行组包，network想个好的办法能够获得上面运行后的数据同时在sendjson之前发送
+        # todo 这里要对需要发送的数据进行组包，network想个好的办法能够获得上面PING运行后的数据同时在sendjson之前发送,如果要计算ping值要进行等待
         sendDic = {"head": "rec", "file": str(self.nfs.absolute()), "network": 1, "ready": ifReady, "error": error}
         # 计算上面json数据包的校验值
         sendChsum = crc32asii(str(sendDic))
@@ -246,7 +253,7 @@ class WorkThread4Send(QThread):
         sendMsg = {"head": "report", "file": self.filepath}
         file_num = countWavFile(self.filepath)
         sendMsg.update({"file_num": file_num})
-        # todo 这里还需要添加计算时间的函数
+        # todo 这里还需要添加计算时间的函数,该函数还未进行编写
         file_time = calProcTime(self.filepath)
         sendMsg.update({"time": "00:00：00"})
         chsum = crc32asii(sendMsg)
@@ -261,13 +268,15 @@ class WorkThread4Send(QThread):
         # 对收到的Msg进行解析
         # 对chsum进行校验
         chsum = self.revMsg["chsum"]
+        #对revMsg中的chsum剔除，计算crc数值
         revChstr = getChstr(self.revMsg)
         revChsum = crc32asii(revChstr)
-        # 初始化要发送到主线程的信息
+        # 初始化要发送到主线程的信息，即给主进程数据让其显示在界面上
         info = {"file_num": file_num, "time": "00:00:00"}
 
         if revChsum == chsum:
-            # todo 报告收到的数据包校验正确
+            # 报告收到的数据包校验正确
+            #todo 这样的校验方式实际上是不对的，但是勉强能用
             info.update({"chsum": "收到的数据包校验正确"})
 
         if self.revMsg["head"] == "control":
@@ -277,6 +286,7 @@ class WorkThread4Send(QThread):
                 info.update({"stop": "平台要求继续进行后续操作！"})
             else:
                 info.update({"stop": "平台要求停止进行后续操作！"})
+        #回传给主进程信息
         self.trigger.emit(info)
 
 
