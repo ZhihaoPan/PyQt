@@ -24,6 +24,7 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setEnabled(False)
         self.plainTextEdit.setGeometry(QtCore.QRect(30, 250, 481, 291))
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
