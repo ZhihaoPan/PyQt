@@ -18,6 +18,7 @@ import pathlib
 
 from revpkg.wait2Rev import Ui_Dialog
 from utils.otherUtils import *
+from mainframepkg.mainWindow import windowMainProc
 
 # 设置平台IP地址的默认值
 IP4platform = "localhost"
@@ -39,6 +40,8 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         # self.IP4platform = IP4platform
         self.filepath = ""
         self.errorMsg = ""
+        self.Msg={}#用于存储准备要接收的信息
+        self.info={}#用于存储发送的信息
         #上一步自检结果的反馈
         self.selfCheckSta = selfCheckSta
         if self.selfCheckSta == 500:
@@ -65,6 +68,28 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
         self.pushButton_3.clicked.connect(self.ipConfirm)
         self.pushButton_4.clicked.connect(self.ipDefault)
 
+        # 点击继续按钮或者取消按钮
+        self.pushButton.clicked.connect(self.nextWindow)
+
+    def nextWindow(self):
+        """
+        跳入下一个window
+        :return:
+        """
+        #把要处理的function拿出来单独发送
+        dicFunc={"func_ycsyjc":self.Msg["func_ycsyjc"],
+                 "func_yzfl":self.Msg["func_yzfl"],
+                 "func_swfl":self.Msg["func_swfl"]}
+        self.nextwindow=windowMainProc(self.Msg["file"],self.info["file_num"],dicFunc,self.IP4platform)
+        self.nextwindow.show()
+        #关闭该界面上的所有线程和Timer!!!!!!,要不下个界面Timer还会运行
+        self.work4Net.terminate()
+        self.work4Send.terminate()
+        self.work4Zmq.terminate()
+        self.timer1.stop()
+        self.timer2.stop()
+        self.close()
+
     def showCurrentTime(self):
         currentTime = time.asctime(time.localtime(time.time()))
         self.lineEdit.setText(currentTime)
@@ -77,6 +102,7 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
             self.lineEdit_7.setText("该IP地址的网络无法Ping通(每5s一次测试)")
 
     def showMsg(self, Msg):
+        self.Msg=Msg
         if Msg:
             self.lineEdit_2.setText(Msg["file"])
             self.lineEdit_3.setText(str(Msg["func_ycsyjc"]))
@@ -93,6 +119,7 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
             self.plainTextEdit.appendPlainText("\n收到的数据包头不是cmd")
 
     def showFileInfo(self, info):
+        self.info=info
         self.lineEdit_9.setText(str(info["file_num"]))
         self.lineEdit_10.setText(info["time"])
         self.lineEdit_11.setText(info["chsum"])
@@ -182,6 +209,7 @@ class WorkThread4zmq(QThread):
         """
         :return:
         """
+        print("WorkThread4zmq start")
         self.socket.bind("tcp://*:5555")  # 绑定端口
         self.message = dict(self.socket.recv_json())
         print("Received request: {}".format(self.message))
@@ -249,6 +277,7 @@ class WorkThread4Send(QThread):
         self.socket = self.context.socket(zmq.REQ)
 
     def run(self):
+        print("WorkThread4Send start")
         # 组成数据包
         sendMsg = {"head": "report", "file": self.filepath}
         file_num = countWavFile(self.filepath)
