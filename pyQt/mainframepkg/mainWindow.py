@@ -32,6 +32,7 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         #初始化部分成员变量
         self.procFunctions=procFunctions
         self.ip4platform=IP4platform
+        self.dicContent={}
         #设置第一个Timer用于界面显示后的监控模型显示,网络情况每10s一次检测，其他信息每秒检测一次
         self.timer1=QTimer()
         #初始化监控的线程
@@ -61,8 +62,9 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         设置三个线程三个timer
         :return:
         """
-        self.timer3.stop()
-
+        #这里做一个循环的话
+        # while 1:
+        #     pass
         audioThread1=WorkThread4Audio()
         audioThread2=WorkThread4Audio()
         audioThread3=WorkThread4Audio()
@@ -71,7 +73,7 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         audioThread3.trigger.connect(self.setDicContent)
         #有个问题如果这三个同时调用了setDicContent会不会混乱
 
-        self.timer3.start(1000)
+
 
     def setDicContent(self,dicContent):
         self.dicContent.update(dicContent)
@@ -112,6 +114,10 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         :param retMsg:
         :return:
         """
+        if not retMsg:
+            self.plainTextEdit.appendPlainText("发送平台的信息包头为:msg,但发送的内容为空")
+            self.work4zmq.disconnect()
+            return
         self.plainTextEdit.appendPlainText("发送平台信息包头:{}, 当前处理的音频文件是:{}"
                                            "\n发送时刻(hhmmss):{}, IP地址:{}"
                                            ", \n是否发送成功:{}"
@@ -142,16 +148,20 @@ class WorkThread4SendTempMsg(QThread):
         super(WorkThread4SendTempMsg,self).__init__()
         self.ip4platform=ip4platform
         self.lastMsg={}
+        self.dicContent={}
         self.context=zmq.Context(1)
         self.socket=self.context.socket(zmq.PUB)
         #todo 此处的ip地址需要后期看下是否要修改
         self.socket.bind("tcp://" + "127.0.0.1" + ":5557")
 
     def setSendContent(self,dicContent):
-        self.dicContent=dicContent
+        self.dicContent.update(dicContent)
 
     def run(self):
         #struct 4 send message
+        if not self.dicContent:
+            self.trigger.emit({})
+            return
         sendMsg = {"head": "msg"}
         sendMsg.update(self.dicContent)
         chsum = crc32asii(sendMsg)
@@ -191,4 +201,3 @@ if __name__=="__main__":
     Qselfcheck = windowMainProc("1","2","127.0.0.1")
     Qselfcheck.show()
     sys.exit(app.exec_())
-
