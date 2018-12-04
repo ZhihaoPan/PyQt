@@ -1,9 +1,12 @@
 """
 主界面的显示，完成包的持续发送
 """
+import random
+
 import zmq,sys,time
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow,QApplication,QMessageBox
-from PyQt5.QtCore import QTimer,QThread,pyqtSignal
+from PyQt5.QtCore import QTimer,QThread,pyqtSignal,QMutexLocker,QMutex
 
 from mainframepkg.mainFrame import Ui_MainWindow
 from utils.getState import *
@@ -42,9 +45,10 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         self.timer1.timeout.connect(self.showCurrentTime)
 
         #该timer用于发送每5s一次的信息
-        self.timer2=QTimer()
-        self.timer2.start(5000)
-        self.timer2.timeout.connect(self.sendTempMsg)
+        # self.timer2=QTimer()
+        # self.timer2.setSingleShot(1)
+        # self.timer2.start(5000)
+        # self.timer2.timeout.connect(self.sendTempMsg)
         #该线程只初始化一次
         self.work4zmq = WorkThread4SendTempMsg(self.ip4platform)
 
@@ -54,26 +58,30 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         self.timer3.start()
         self.timer3.timeout.connect(self.procAudio)
 
+        #给线程的部分内容加锁，保证线程不会混乱
+        self.mutex=QMutex()
 
     #处理音频信息块
     def procAudio(self):
         """
         todo 此处为算法处理模块算法每5s的处理结果存入dicContent中，
+        #有个问题如果这三个同时调用了setDicContent会不会混乱,答案是会，当同时调用一个函数的时候就会冲突
+        因此需要设置一个mutex进行一个互斥
         设置三个线程三个timer
         :return:
         """
         #这里做一个循环的话
         # while 1:
         #     pass
-        audioThread1=WorkThread4Audio()
-        audioThread2=WorkThread4Audio()
-        audioThread3=WorkThread4Audio()
+        audioThread1=WorkThread4Audio(1,self.mutex)
+        audioThread2=WorkThread4Audio(2,self.mutex)
+        audioThread3=WorkThread4Audio(3,self.mutex)
         audioThread1.trigger.connect(self.setDicContent)
         audioThread2.trigger.connect(self.setDicContent)
         audioThread3.trigger.connect(self.setDicContent)
-        #有个问题如果这三个同时调用了setDicContent会不会混乱
-
-
+        audioThread1.start()
+        audioThread2.start()
+        audioThread3.start()
 
     def setDicContent(self,dicContent):
         self.dicContent.update(dicContent)
@@ -187,14 +195,19 @@ class WorkThread4SendTempMsg(QThread):
 
 class WorkThread4Audio(QThread):
     trigger=pyqtSignal(dict)
-    def __init__(self):
+    def __init__(self,ID,mutex):
         super(WorkThread4Audio,self).__init__()
+        self.ThreadID=ID
+        self.mutex=mutex
     def run(self):
-        dicContent = {"file": "/home", "filedone": self.dicContent["filedone"] + 1, "time_pass": "000001",
-                           "time_remain": "000001", "num_ycsyjc": 0, "num_swfl": 0, "num_yzfl": 0,
-                           "time": time.strftime("%H%M%S", time.localtime())}
+        #这边加上了一个线程锁，能够保证线程不会产生冲突同时能够实现5s发送一次线程的信息
+        m_locker=QMutexLocker(self.mutex)
+        dicContent = {"file": "/home", "filedone": 0, "time_pass": "000001", "time_remain": "000001", "num_ycsyjc": 0,
+                      "num_swfl": 0, "num_yzfl": 0, "time": time.strftime("%H%M%S", time.localtime())}
+        time.sleep(5)
+        print(self.ThreadID)
         self.trigger.emit(dicContent)
-        pass
+        self.quit()
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
