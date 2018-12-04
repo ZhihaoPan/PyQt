@@ -51,21 +51,33 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         self.timer3=QTimer()
         self.timer3.setSingleShot(1)
         self.timer3.start()
+        self.timer3.timeout.connect(self.procAudio)
 
 
-        # todo 将处理文件的信息都按字典形式存入到dicContent中用于后续的发送信息
-        self.dicContent = {"file": "/home", "filedone": 0, "time_pass": "000001", "time_remain": "000001",
-                           "num_ycsyjc": 0, "num_swfl": 0, "num_yzfl": 0,
-                           "time": time.strftime("%H%M%S", time.localtime())}
     #处理音频信息块
     def procAudio(self):
         """
         todo 此处为算法处理模块算法每5s的处理结果存入dicContent中，
+        设置三个线程三个timer
         :return:
         """
+        self.timer3.stop()
 
-        pass
-    #发送处理信息部分
+        audioThread1=WorkThread4Audio()
+        audioThread2=WorkThread4Audio()
+        audioThread3=WorkThread4Audio()
+        audioThread1.trigger.connect(self.setDicContent)
+        audioThread2.trigger.connect(self.setDicContent)
+        audioThread3.trigger.connect(self.setDicContent)
+        #有个问题如果这三个同时调用了setDicContent会不会混乱
+
+        self.timer3.start(1000)
+
+    def setDicContent(self,dicContent):
+        self.dicContent.update(dicContent)
+        self.sendTempMsg()
+
+    #发送处理信息部
     def sendTempMsg(self):
         """
         发送每5s的信息,初始化的时候要传入内容参数和IP参数
@@ -163,6 +175,16 @@ class WorkThread4SendTempMsg(QThread):
                 , "file":sendMsg["file"],"filedone":sendMsg["filedone"], "time_remain":sendMsg["time_remain"]}
         self.trigger.emit(retMsg)
 
+class WorkThread4Audio(QThread):
+    trigger=pyqtSignal(dict)
+    def __init__(self):
+        super(WorkThread4Audio,self).__init__()
+    def run(self):
+        dicContent = {"file": "/home", "filedone": self.dicContent["filedone"] + 1, "time_pass": "000001",
+                           "time_remain": "000001", "num_ycsyjc": 0, "num_swfl": 0, "num_yzfl": 0,
+                           "time": time.strftime("%H%M%S", time.localtime())}
+        self.trigger.emit(dicContent)
+        pass
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
