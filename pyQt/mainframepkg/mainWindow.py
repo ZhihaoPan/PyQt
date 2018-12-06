@@ -12,6 +12,7 @@ from mainframepkg.mainFrame import Ui_MainWindow
 from utils.getState import *
 from utils.otherUtils import *
 
+
 class windowMainProc(QMainWindow,Ui_MainWindow):
     def __init__(self,fileName,fileNum,procFunctions,IP4platform="127.0.0.1",parent=None):
         """
@@ -90,9 +91,9 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
         self.audioThread1.trigger.connect(self.setDicContent)
         self.audioThread2.trigger.connect(self.setDicContent)
         self.audioThread3.trigger.connect(self.setDicContent)
-        self.audioThread1.start()
-        self.audioThread2.start()
-        self.audioThread3.start()
+        self.audioThread1.start(1)
+        self.audioThread2.start(2)
+        self.audioThread3.start(3)
 
 
     def setDicContent(self,dicContent,threadID):
@@ -113,7 +114,7 @@ class windowMainProc(QMainWindow,Ui_MainWindow):
             self.plainTextEdit.appendPlainText("当前线程：{} 处理音频时发生错误:{}\n".format(dicContent["ThreadID"],dicContent["ERROR"]))
 
 
-        self.plainTextEdit.appendPlainText("当前音频处理线:{},处理完成,准备发送信息...".format(threadID))
+        self.plainTextEdit.appendPlainText("当前音频处理线程:{},处理完成,准备发送信息...".format(threadID))
 
         self.dicContent.update(dicContent)
         self.sendTempMsg()
@@ -240,24 +241,42 @@ class WorkThread4Audio(QThread):
         super(WorkThread4Audio,self).__init__()
         self.ThreadID=ID
         self.mutex=mutex
+
     def run(self):
+
         #此处加上算法运行代码
+
+        # self.moveToThread(self)
+        # timer = QTimer()
+        # timer.moveToThread(self)
+        #
+        # timer.setSingleShot(1)
+        # timer.timeout.connect(retContent5s)
+        # timer.start()
+        # print(timer.isActive())
+
+
         try:
-            tmp=random.randint(0,10)
+            tmp=random.randint(1,1)
             time.sleep(tmp)
+            self.dicContent = {"file": "/home", "filedone": 0, "time_pass": "000001", "time_remain": "000001",
+                               "num_ycsyjc": 0, "num_swfl": 0, "num_yzfl": 0,
+                               "time": time.strftime("%H%M%S", time.localtime())}
+            m_locker = QMutexLocker(self.mutex)
+            print("Current Thread ID is :{}".format(self.ThreadID))
+            time.sleep(5)
+            self.trigger.emit(self.dicContent, self.ThreadID)
+
         except Exception as e:
+            m_locker = QMutexLocker(self.mutex)
+            time.sleep(5)
             self.trigger.emit({"ERROR":e,"ThreadID":self.ThreadID},0)
             self.quit()
             return
 
         #这边加上了一个线程锁，能够保证线程不会产生冲突同时能够实现5s发送一次线程的信息
-        m_locker=QMutexLocker(self.mutex)
-        dicContent = {"file": "/home", "filedone": 0, "time_pass": "000001", "time_remain": "000001", "num_ycsyjc": 0,
-                      "num_swfl": 0, "num_yzfl": 0, "time": time.strftime("%H%M%S", time.localtime())}
-        time.sleep(5)
-        print("Current Thread ID is :{}".format(self.ThreadID))
 
-        self.trigger.emit(dicContent,self.ThreadID)
+        #self.trigger.emit(dicContent,self.ThreadID)
 
         self.quit()
 
