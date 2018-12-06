@@ -60,7 +60,7 @@ def getGPUstate():
             infoStr+=meminfo[i]+"\n"
         return infoStr
     except Exception as e:
-        print("error happen in getGPUstate:"+str(e))
+        #print("error happen in getGPUstate:"+str(e))
         return "出现错误 Error:"+str(e)
 
 if __name__=="__main__":
