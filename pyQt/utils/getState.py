@@ -1,6 +1,7 @@
 import psutil
 import time
 import pynvml
+from utils.writeLog import *
 
 def getCPUstate(intervla=1):
     """
@@ -8,7 +9,13 @@ def getCPUstate(intervla=1):
     :param intervla: 百分比
     :return: 字符串的cpu百分比使用率
     """
-    return "CPU使用率为："+str(psutil.cpu_percent(intervla))+"%"
+    try:
+        msg= "CPU使用率为："+str(psutil.cpu_percent(intervla))+"%"
+        #mainlog(msg,"info")
+        return msg
+    except Exception as e:
+        mainlog(e,"error")
+        return "出现错误："+e
 
 def getCurrentTime():
     return time.asctime(time.localtime(time.time()))
@@ -18,8 +25,10 @@ def getMemorystate():
         phymem=psutil.virtual_memory()
         line = "内存使用率为%5s%%  %6s(Used) / %s(Total)" % (
             phymem.percent, str(int(phymem.used / 1024 / 1024)) + "M", str(int(phymem.total / 1024 / 1024)) + "M")
+        #mainlog(line,'info')
         return line
     except Exception as e:
+        mainlog(e,'error')
         return "出现错误 Error:"+str(e)
 
 def getTemstate():
@@ -38,8 +47,10 @@ def getTemstate():
         for name,entries in tem.items():
             for entry in entries:
                 tem_str+="label:"+entry.label+" ,Tem:"+str(entry.current)+" |\n"
+        #mainlog(tem_str,'info')
         return tem_str
     except Exception as e:
+        mainlog(e,'error')
         return "出现错误 Error:"+str(e)
 
 def getGPUstate():
@@ -58,8 +69,10 @@ def getGPUstate():
             meminfo[num]="Device: {} , {} / {} {:.2f}%, free memory:{}".format(num,info.used,info.total,info.used/info.total*100,info.free)
         for i in range(len(meminfo)):
             infoStr+=meminfo[i]+"\n"
+        #mainlog(infoStr,'info')
         return infoStr
     except Exception as e:
+        mainlog(e,'error')
         #print("error happen in getGPUstate:"+str(e))
         return "出现错误 Error:"+str(e)
 

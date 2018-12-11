@@ -84,11 +84,19 @@ if __name__=="__main__":
     "head":"control", "file":" / xxxx / xxxxx", "stop":0,    "chsum":"0x2f42a089"}
     socket.send_json(dic)
 
-    #主界面信息传递
+    # #主界面信息5s传递
+    # context = zmq.Context(1)
+    # socket=context.socket(zmq.SUB)
+    # socket.connect("tcp://127.0.0.1:5557")
+    # while 1:
+    #     socket.setsockopt(zmq.SUBSCRIBE, b'')
+    #     msg=dict(socket.recv_json())
+    #     print("mainwindow receive:%s" % str(msg))
+    # 主界面信息传递
     context = zmq.Context(1)
-    socket=context.socket(zmq.SUB)
-    socket.connect("tcp://127.0.0.1:5557")
+    socket = context.socket(zmq.SUB)
+    socket.connect("tcp://127.0.0.1:5558")
     while 1:
         socket.setsockopt(zmq.SUBSCRIBE, b'')
-        msg=dict(socket.recv_json())
+        msg = dict(socket.recv_json())
         print("mainwindow receive:%s" % str(msg))

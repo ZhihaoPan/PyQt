@@ -21,6 +21,8 @@ from utils.otherUtils import *
 from mainframepkg.mainWindow import windowMainProc
 
 # 设置平台IP地址的默认值
+from utils.writeLog import mainlog
+
 IP4platform = "localhost"
 
 
@@ -97,8 +99,10 @@ class dialogWait2Rev(QDialog, Ui_Dialog):
     # 网络，在界面上显示网络连接是否通畅
     def showNetwork(self, result):
         if result == 0:  # 网络可以ping的通
+            mainlog("IP：{}网络通畅".format(self.IP4platform),"info")
             self.lineEdit_7.setText("该IP地址的网络通畅(每5s一次测试)")
         else:
+            mainlog("IP:{}网络不通畅".format(self.IP4platform),"Error")
             self.lineEdit_7.setText("该IP地址的网络无法Ping通(每5s一次测试)")
 
     def showMsg(self, Msg):
@@ -212,6 +216,7 @@ class WorkThread4zmq(QThread):
         print("WorkThread4zmq start")
         self.socket.bind("tcp://*:5555")  # 绑定端口
         self.message = dict(self.socket.recv_json())
+        mainlog("Reveived Request:{}".format(self.message))
         print("Received request: {}".format(self.message))
         # 这里要把收到的json进行拆包，首先判断nfs是否可读，判断校验数值是否正确，然后写校验结果和错误信息
         # if head== cmd就回传msg else 错误信息加同时跳出thread
@@ -262,7 +267,7 @@ class WorkThread4zmq(QThread):
         sendDic.update({"chsum": sendChsum})
         # 发给平台数据包，直接传输json格式
         self.socket.send_json(sendDic)
-
+        mainlog("Send Reply:{}".format(sendDic))
 
 class WorkThread4Send(QThread):
     """
@@ -290,9 +295,11 @@ class WorkThread4Send(QThread):
         # zmq
         self.socket.connect("tcp://" + IP4platform + ":5556")
         print("Sending report....: %s" % str(sendMsg))
+        mainlog("Send Report:{}".format(str(sendMsg)))
         self.socket.send_json(sendMsg)
 
         self.revMsg = self.socket.recv_json()
+        mainlog("Receive Msg:{}".format(self.revMsg))
         print("Received reply: %s" % (self.revMsg))
         # 对收到的Msg进行解析
         # 对chsum进行校验

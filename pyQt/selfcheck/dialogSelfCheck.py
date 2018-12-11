@@ -42,6 +42,7 @@ class dialogSelfCheck(QDialog, selfCheck.Ui_Dialog):
         #QApplication.processEvents()
 
     def btnContinue(self):
+        mainlog("Enter third dialog.")
         self.nextwindow=dialogWait2Rev(self.selfCheckSta)
         self.nextwindow.show()
         self.close()

@@ -1,12 +1,12 @@
 import sys
-import loginpkg
+from loginpkg.dialogLogin import *
 from PyQt5.QtWidgets import QApplication,QMainWindow,QDialog
 
 
 if __name__=="__main__":
     app=QApplication(sys.argv)
     Qdialog_login=QDialog()
-    login_ui=loginpkg.Ui_Dialog()
+    login_ui=Ui_Dialog()
 
     login_ui.setupUi(Qdialog_login)
     Qdialog_login.show()

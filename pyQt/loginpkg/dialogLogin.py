@@ -2,6 +2,8 @@ import sys
 from PyQt5.QtWidgets import QApplication,QDialog,QLineEdit,QMessageBox
 from selfcheck.dialogSelfCheck import dialogSelfCheck
 from loginpkg.login import Ui_Dialog
+from utils.writeLog import mainlog
+
 
 class dialogLogin(QDialog,Ui_Dialog):
     def __init__(self,parent=None):
@@ -14,10 +16,12 @@ class dialogLogin(QDialog,Ui_Dialog):
 
     def logincheck(self):
         if self.lineEdit.text().strip()=="admin" and self.lineEdit_2.text().strip()=="admin":
+            mainlog("user:{} login,Enter second dialog.".format("admin"))
             self.nextwindow = dialogSelfCheck()
             self.nextwindow.show()
             self.close()
         else:
+            mainlog("user:{} login fail.".format(self.lineEdit.text().strip()))
             box=QMessageBox.critical(self,
                             "Wrong",
                             "用户或者密码错误",
@@ -26,6 +30,7 @@ class dialogLogin(QDialog,Ui_Dialog):
             self.lineEdit_2.setText("")
 
     def cancel(self):
+        mainlog("User cancel.")
         self.close()
 
 if __name__=="__main__":
